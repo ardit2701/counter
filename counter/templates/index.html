@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visit Counter</title>
+</head>
+<body>
+    <h1>Visit Counter</h1>
+    <p>You have visited this site {{ counter }} times.</p>
+
+    <form action="{{ url_for('increment') }}" method="post">
+        <button type="submit">+2</button>
+        <input type="hidden" name="increment_value" value="2">
+    </form>
+
+    <form action="{{ url_for('destroy_session') }}" method="get">
+        <button type="submit">Reset</button>
+    </form>
+
+    <form action="{{ url_for('destroy_session') }}" method="post">
+        <button type="submit">Reset (POST)</button>
+    </form>
+
+    <form action="{{ url_for('increment') }}" method="post">
+        <label for="custom_increment">Custom Increment:</label>
+        <input type="number" name="increment_value" id="custom_increment" value="1" min="1">
+        <button type="submit">Increment</button>
+    </form>
+</body>
+</html>
